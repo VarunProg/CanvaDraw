@@ -1,7 +1,8 @@
 # CanvaDraw
 This project is to draw canva design When pressing plus, a user should be able to draw a box in the right canvas by
 clicking and dragging and by pressing minus button and click on draw box user should be able to remove box. and clicking on clear button user can clear all the items from
-right canva.
+right canva.\
+By default selected color is red.
 ## Highlights of the project setup
 ### vite -
 Is a build tool that aims to provide a faster and leaner development experience for modern web projects, it uses esbuild which way more faster than any other build tools [https://vitejs.dev/guide/] 
