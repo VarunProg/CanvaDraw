@@ -1,13 +1,12 @@
-import { useAppDispatch, useAppSelector } from "../Hooks";
-import {
-  updateAction,
-  updateTotalItems,
-  selectedColor,
-} from "../Store/ActionSlice";
+import { useAppDispatch, useAppSelector } from "../hooks";
+import { updateAction, selectedColor } from "../store/globalSlice";
 import "../styles/App.css";
-const ContainerLeft = () => {
-  const { totalItems } = useAppSelector((state) => state.action); // get state
-  const dispatch = useAppDispatch(); // updatind state
+import "../styles/utils.css";
+const ActionPanel = () => {
+  const { totalItems, action, fillColor } = useAppSelector(
+    (state) => state.global
+  );
+  const dispatch = useAppDispatch();
 
   const handleClick = (
     _e: React.MouseEvent<HTMLButtonElement>,
@@ -26,10 +25,16 @@ const ContainerLeft = () => {
     <>
       <div className="container-left">
         <div className="buttons">
-          <button className="btn-1" onClick={(e) => handleClick(e, "add")}>
+          <button
+            className={action === "add" ? "btn " : ""}
+            onClick={(e) => handleClick(e, "add")}
+          >
             +
           </button>
-          <button className="btn-2" onClick={(e) => handleClick(e, "remove")}>
+          <button
+            className={action === "remove" ? "btn " : ""}
+            onClick={(e) => handleClick(e, "remove")}
+          >
             -
           </button>
         </div>
@@ -39,18 +44,20 @@ const ContainerLeft = () => {
             onClick={(e) => handleBoxSelection(e, "red")}
           ></button>
           <button
-            className="box box-2"
+            className=" box box-2"
             onClick={(e) => handleBoxSelection(e, "blue")}
           ></button>
           <button
-            className="box box-3"
+            className="box box-3 "
             onClick={(e) => handleBoxSelection(e, "yellow")}
           ></button>
         </div>
-        <h3>
-          <span>{totalItems}</span>
+        <h3 className="content">
+          <span>{totalItems === 0 ? <h5>No Elements</h5> : totalItems}</span>
         </h3>
         <button
+          disabled={!totalItems}
+          className={totalItems ? "btn " : ""}
           style={{ width: "70px" }}
           onClick={(e) => handleClick(e, "clear")}
         >
@@ -61,4 +68,4 @@ const ContainerLeft = () => {
   );
 };
 
-export default ContainerLeft;
+export default ActionPanel;

@@ -1,4 +1,4 @@
-import { createSlice, PayloadAction } from "@reduxjs/toolkit";
+import { createSlice } from "@reduxjs/toolkit";
 
 export interface IInitialState {
   totalItems: number;
@@ -12,12 +12,11 @@ const initialState: IInitialState = {
   fillColor: "red",
 };
 
-export const actionSlice = createSlice({
+export const globalSlice = createSlice({
   name: "actions",
   initialState,
   reducers: {
     updateAction: (state, action) => {
-      // state.totalItems += 1;
       state.action = action.payload;
     },
     updateTotalItems: (state, action) => {
@@ -29,8 +28,7 @@ export const actionSlice = createSlice({
   },
 });
 
-// Action creators are generated for each case reducer function
 export const { updateAction, updateTotalItems, selectedColor } =
-  actionSlice.actions;
+  globalSlice.actions;
 
-export default actionSlice.reducer;
+export default globalSlice.reducer;
