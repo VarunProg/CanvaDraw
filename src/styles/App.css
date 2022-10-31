@@ -1,0 +1,48 @@
+
+body{
+background: whitesmoke;
+font-size: 18px;
+}
+.container-left{
+  width: 50%;
+  border: 1px solid red;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+button{
+  width: 50px;
+  height: 50px;
+ 
+}
+.btn-1{
+  margin-right: 10px;
+}
+.buttons{
+ height: 100px;
+ /* border: 1px solid red; */
+}
+.color-boxes{
+  display: flex;
+  gap: 10px;
+}
+.color-boxes .box{
+  height: 60px;
+  width: 60px;
+  border: 1px solid black;
+}
+.color-boxes .box.box-1{
+  background-color: red;
+}
+.color-boxes .box.box-2 {
+  background-color: blue;
+}
+.color-boxes .box.box-3 {
+  background-color: yellow;
+}
+.container-right{
+  width: 50%;
+  border:1px solid black
+}
+
